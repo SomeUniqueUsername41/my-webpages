@@ -1,120 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Animal Latin Translator</title>
+  <meta charset="UTF-8">
+  <title>My HTML Pages</title>
   <style>
-    /* Adjusted CSS for better alignment and resizable boxes */
-    #input-form {
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
       margin-bottom: 20px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
+    .links {
+      display: grid;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
-    textarea,
-    .output-box {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      max-width: 800px; /* Set maximum width */
-      height: 150px; /* Adjust the height as desired */
-      text-align: left; /* Align text to the left */
-      font-family: Arial, sans-serif; /* Specify the font family */
-      line-height: 1.5; /* Set line height for better readability */
+    a {
+      display: block;
+      padding: 12px 16px;
+      background: #161b22;
+      color: #58a6ff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      background: #21262d;
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
-  <div id="input-form">
-    <label for="input">Enter text here</label>
-    <textarea id="input"></textarea>
-    <label for="animal-select">Select Animal Latin</label>
-    <select id="animal-select">
-      <option value="ay">Pig Latin</option>
-      <option value="ack">Duck Latin</option>
-      <option value="eak">Mouse Latin</option>
-      <option value="uck">Chicken Latin</option>
-      <option value="oot">Monkey Latin</option>
-      <option value="ark">Dog Latin</option>
-      <option value="oak">Frog Latin</option>
-      <option value="iss">Snake Latin</option>
-      <option value="irp">Bird Latin</option>
-      <option value="onk">Goose Latin</option>
-      <option value="out">Crocodile Latin</option>
-      <option value="oof">Deer Latin</option>
-      <option value="ell">Turtle Latin</option>
-      <option value="orn">Goat Latin</option>
-      <option value="aw">Bear Latin</option>
-      <option value="awk">Parrot Latin</option>
-      <option value="ale">Lizard Latin</option>
-      <option value="ipe">Zebra Latin</option>
-      <option value="ane">Lion Latin</option>
-      <option value="ut">Squirrel Latin</option>
-      <option value="ump">Camel Latin</option>
-      <option value="unk">Elephant Latin</option>
-      <option value="owl">Wolf Latin</option>
-    </select>
+  <h1>My Github Webpages</h1>
+  <div class="links">
+    <a href="https://someuniqueusername41.github.io/favorite-characters/" target="_blank" rel="noopener noreferrer">My Favorite Characters</a>
+    <a href="https://someuniqueusername41.github.io/favorite-games/" target="_blank" rel="noopener noreferrer">My Favorite Video Games</a>
+    <a href="https://someuniqueusername41.github.io/number-tool/" target="_blank" rel="noopener noreferrer">Number Representation Tool</a>
+    <a href="https://someuniqueusername41.github.io/cosmic-donut/" target="_blank" rel="noopener noreferrer">Age Determinator Tool</a>
+    <a href="https://someuniqueusername41.github.io/media-spectrum/" target="_blank" rel="noopener noreferrer">Media categorized by my Media Tone Meter</a>
+    <a href="https://someuniqueusername41.github.io/power-of-two/" target="_blank" rel="noopener noreferrer">Power of 2 Proximity Comparer</a>
+    <a href="https://someuniqueusername41.github.io/perfect-square/" target="_blank" rel="noopener noreferrer">Perfect Square Proximity Comparer</a>
+    <a href="https://someuniqueusername41.github.io/prime-number/" target="_blank" rel="noopener noreferrer">Prime Number Proximity Comparer</a>
+    <a href="https://someuniqueusername41.github.io/fibonacci-number/" target="_blank" rel="noopener noreferrer">Fibonacci Number Proximity Comparer</a>
+    <a href="https://someuniqueusername41.github.io/fibonacci-prime/" target="_blank" rel="noopener noreferrer">Fibonacci Prime Number Proximity Comparer</a>
+    <a href="https://someuniqueusername41.github.io/unique-phonetic-alphabet/" target="_blank" rel="noopener noreferrer">My Own Phonetic Alphabet</a>
+    <a href="https://someuniqueusername41.github.io/media-age/" target="_blank" rel="noopener noreferrer">Media Year Equations</a>
   </div>
-  <div>
-    <label for="output">Translation</label>
-    <textarea id="output" class="output-box" readonly></textarea>
-  </div>
+
+  <br><br>
+  This webpage was designed by William Kelly, who provided the link or QR code to it. Feel free to bookmark this page and/or the links.
   
-  <p>When I was maybe around 14 years old, there was an app for a Duck Latin translator that was just like a Pig Latin translator, but it used the suffix "-ack" (like "quack") instead of "-ay". This translator takes that same idea for different animal-based Latins and uses suffixes based on qualities of, the sounds of, and things associated with the respective animals that the different animal Latins are based off of. So, for instance, Mouse Latin uses the suffix "-eak" as in "squeak", Squirrel Latin uses "-ut" as in "nut", and Camel Latin uses "-ump" as in "hump".</p>
-
-  <script>
-  let input = document.getElementById("input");
-  let animalSelect = document.getElementById("animal-select");
-  let output = document.getElementById("output");
-
-  input.addEventListener("input", updateOutput);
-  animalSelect.addEventListener("change", updateOutput);
-
-  function updateOutput() {
-    output.value = translateToAnimalLatin(input.value, animalSelect.value);
-  }
-
-  function translateToAnimalLatin(text, suffix) {
-    let tokens = text.split(/([A-Za-z]+(?:'[A-Za-z]+)*)/);
-
-    return tokens.map(token => {
-      if (!/^[A-Za-z]+(?:'[A-Za-z]+)*$/.test(token)) {
-        return token;
-      }
-
-      let isAllCaps = token.length >= 2 && token === token.toUpperCase();
-      let startsWithCapital = token[0] === token[0].toUpperCase();
-      let lower = token.toLowerCase();
-
-      let firstVowelIndex = getFirstVowelIndex(lower);
-      let translated;
-
-      if (firstVowelIndex === 0) {
-        translated = lower + "w" + suffix;
-      } else {
-        let cluster = lower.slice(0, firstVowelIndex);
-        let rest = lower.slice(firstVowelIndex);
-        translated = rest + cluster + suffix;
-      }
-
-      if (isAllCaps) {
-        translated = translated.toUpperCase();
-      } else if (startsWithCapital) {
-        translated = translated.charAt(0).toUpperCase() + translated.slice(1);
-      }
-
-      return translated;
-    }).join("");
-  }
-
-  function getFirstVowelIndex(word) {
-    let match = word.search(/[aeiou]/);
-    if (match !== -1) return match;
-
-    return word.search(/y/);
-  }
-</script>
+  <br><br>
+  <a href="https://someuniqueusername41.github.io/favorite-webpages/">Also here's a list of existing webpages I visit or that you might find interesting</a>
 </body>
 </html>
